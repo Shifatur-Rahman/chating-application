@@ -1,17 +1,25 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button, Alert } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 const Login = () => {
   const auth = getAuth();
+  const provider = new GoogleAuthProvider();
   let navigate = useNavigate();
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [checkPass, setCheckPass] = useState(false);
   let [emailErr, setEmailErr] = useState("");
   let [passwordErr, setPasswordErr] = useState("");
+  let [wrongPass, setWrongPass] = useState(false);
+  let [wrongEmail, setWrongEmail] = useState(false);
 
   let handleSubmit = () => {
     if (!email) {
@@ -27,13 +35,34 @@ const Login = () => {
           console.log(user);
         })
         .catch((error) => {
-          console.log(error);
+          const errorCode = error.code;
+          console.log(errorCode);
+          if (errorCode.includes("password")) {
+            setWrongPass("Password is Wrong");
+          } else if (errorCode.includes("user")) {
+            setWrongEmail("Email not found! Please try again");
+          } else {
+            setWrongPass("");
+            setWrongEmail("");
+          }
         });
     }
   };
 
   let handlePass = () => {
     setCheckPass(!checkPass);
+  };
+
+  let handleGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -45,7 +74,7 @@ const Login = () => {
               <h1>Login to your account!</h1>
 
               <div className="loginOption">
-                <div className="option">
+                <div onClick={handleGoogleSignIn} className="option">
                   <img src="./assets/images/google.png" alt="google-logo" />
                   Login with Google
                 </div>
@@ -56,6 +85,19 @@ const Login = () => {
               </div>
 
               <br />
+
+              {wrongPass ? (
+                <Alert variant="filled" severity="warning">
+                  {wrongPass}
+                </Alert>
+              ) : wrongEmail ? (
+                <Alert variant="filled" severity="warning">
+                  {wrongEmail}
+                </Alert>
+              ) : (
+                ""
+              )}
+
               <TextField
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"

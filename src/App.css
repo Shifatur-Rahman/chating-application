@@ -68,6 +68,7 @@
   margin-top: 30px;
   font-family: sans-serif;
   position: relative;
+  cursor: pointer;
 }
 
 .registration_part .option img {

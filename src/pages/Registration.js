@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button, Alert } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 
 const Registration = () => {
   const auth = getAuth();
@@ -17,6 +21,7 @@ const Registration = () => {
   let [confirmpasswordErr, setConfirmpasswordErr] = useState("");
   let [passwordLengthErr, setPasswordLengthErr] = useState("");
   let [matchPassword, setMatchPassword] = useState("");
+  let [existEmail, setExistEmail] = useState(false);
 
   let handleSubmit = () => {
     if (!name) {
@@ -42,11 +47,18 @@ const Registration = () => {
       setMatchPassword("");
       createUserWithEmailAndPassword(auth, email, password)
         .then((user) => {
+          sendEmailVerification(auth.currentUser).then((data) => {
+            console.log("Email send");
+          });
           console.log(user);
           navigate("/login");
         })
         .catch((error) => {
-          console.log(error);
+          const errorCode = error.code;
+          console.log(errorCode);
+          if (errorCode.includes("email")) {
+            setExistEmail("Email already in use Please try another email.");
+          }
         });
     }
   };
@@ -58,7 +70,10 @@ const Registration = () => {
           <div className="box">
             <div className="left">
               <h1>Get started with easily register</h1>
-              <p>Free register and you can enjoy it</p>
+              <p style={{ marginBottom: "20px" }}>
+                Free register and you can enjoy it
+              </p>
+              {existEmail ? <Alert severity="error">{existEmail}</Alert> : ""}
 
               <TextField
                 helperText={nameErr}
