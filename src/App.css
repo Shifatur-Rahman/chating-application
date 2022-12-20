@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Registration images */
+
+/* 
+.registration_part
+.MuiGrid-root
+ .MuiGrid-item
+.MuiGrid-grid-xs-6
+.css-1osj8n2-MuiGrid-root */
+
+/* .css-mhc70k-MuiGrid-root {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+} */
+.registration_part .box {
+  display: flex;
+  justify-content: right;
+  margin-right: 60px;
+}
+
+.registration_part h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #11175d;
+  margin-top: 225px;
+}
+
+.registration_part p {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #c3c5d7;
+}
+
+.registration_part .MuiFormHelperText-root {
+  color: red;
+  font-size: 14px;
+}
+
+.registration_part button {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.registration_part .msg {
+  margin-top: 35px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #03014c;
+}
+
+.registration_part .loginOption {
+  display: flex;
+}
+
+.registration_part .option {
+  padding: 20px 40px;
+  border: 1px solid rgb(3, 1, 76, 0.083);
+  margin-right: 20px;
+  border-radius: 9px;
+  margin-top: 30px;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.registration_part .option img {
+  position: absolute;
+  top: 17px;
+  left: 10px;
+}
+
+.registration_part .eye {
+  position: relative;
+  width: 365px;
+}
+
+.registration_part .eyeIcon {
+  position: absolute;
+  bottom: 20px;
+  right: 5px;
+}
