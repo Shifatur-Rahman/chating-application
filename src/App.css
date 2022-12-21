@@ -87,3 +87,41 @@
   bottom: 20px;
   right: 5px;
 }
+
+.leftbar {
+  width: 186px;
+  height: 100vh;
+  background-color: #5f35f5;
+  margin: 35px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.leftbar .profilePic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 38px;
+}
+.leftbar li {
+  margin-top: 83px;
+  width: 161px;
+  margin-left: auto;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.leftbar .homeIcon {
+  font-size: 45px;
+  color: #fff;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.leftbar .active {
+  background-color: #fff;
+}

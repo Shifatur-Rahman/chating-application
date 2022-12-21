@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Alert, Grid } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Leftbar from "../components/Leftbar";
 
 const Home = () => {
   const auth = getAuth();
@@ -22,7 +23,20 @@ const Home = () => {
   return (
     <>
       {emailVerify ? (
-        "Home Page"
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Leftbar />
+          </Grid>
+          <Grid item xs={4}>
+            two
+          </Grid>
+          <Grid item xs={3}>
+            three
+          </Grid>
+          <Grid item xs={3}>
+            Four
+          </Grid>
+        </Grid>
       ) : (
         <Grid container spacing={2}>
           <Grid item xs={4}></Grid>
