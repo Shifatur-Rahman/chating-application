@@ -3,19 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* Registration images */
 
-/* 
-.registration_part
-.MuiGrid-root
- .MuiGrid-item
-.MuiGrid-grid-xs-6
-.css-1osj8n2-MuiGrid-root */
+ol,
+ul {
+  list-style: none;
+}
 
-/* .css-mhc70k-MuiGrid-root {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-} */
 .registration_part .box {
   display: flex;
   justify-content: right;
@@ -96,7 +89,13 @@
   border-radius: 20px;
   text-align: center;
 }
-
+.leftbar h4 {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #fff;
+}
 .leftbar .profilePic {
   width: 100px;
   height: 100px;
@@ -108,8 +107,22 @@
   width: 161px;
   margin-left: auto;
   padding: 20px;
+  cursor: pointer;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  position: relative;
+}
+
+.leftbar li:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-color: #5f35f5;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  content: "";
 }
 
 .leftbar .homeIcon {
@@ -117,11 +130,10 @@
   color: #fff;
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
 .leftbar .active {
   background-color: #fff;
+}
+
+.leftbar .active .homeIcon {
+  color: #5f35f5;
 }

@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // const uid = user.uid;
+      
         setEmailVerify(user.emailVerified);
         console.log(user);
       } else {
@@ -25,7 +25,7 @@ const Home = () => {
       {emailVerify ? (
         <Grid container spacing={2}>
           <Grid item xs={2}>
-            <Leftbar />
+            <Leftbar active="home" />
           </Grid>
           <Grid item xs={4}>
             two
