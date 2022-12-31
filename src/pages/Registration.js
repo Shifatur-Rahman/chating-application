@@ -8,14 +8,16 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+import { getDatabase, ref, set } from "firebase/database";
+
 const Registration = () => {
   const auth = getAuth();
+  const db = getDatabase();
   let navigate = useNavigate();
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [confirmpassword, setConfirmpassword] = useState("");
-
   let [nameErr, setNameErr] = useState("");
   let [emailErr, setEmailErr] = useState("");
   let [passwordErr, setPasswordErr] = useState("");
@@ -35,12 +37,10 @@ const Registration = () => {
       setEmailErr("");
     } else if (password.length < 8) {
       setPasswordLengthErr("Password must be greater than 8");
-
       setPasswordErr("");
     } else if (!confirmpassword) {
       setConfirmpasswordErr("Please confirm your Password");
       setPasswordLengthErr("");
-      //   setConfirmpasswordErr("");
     } else if (password !== confirmpassword) {
       setMatchPassword("Password not Matched");
     } else {
@@ -55,13 +55,17 @@ const Registration = () => {
               displayName: name,
             })
               .then(() => {
-                // console.log("name set");
+                set(ref(db, "users/" + auth.currentUser.uid), {
+                  username: name,
+                  email: email,
+                });
               })
               .catch((error) => {
                 console.log(error);
               });
           });
-          console.log(user);
+          // console.log(auth.currentUser);
+
           navigate("/login");
         })
         .catch((error) => {

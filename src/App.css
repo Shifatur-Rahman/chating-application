@@ -9,6 +9,10 @@ ul {
   list-style: none;
 }
 
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-left: 0 !important;
+}
+
 .registration_part .box {
   display: flex;
   justify-content: right;
@@ -85,7 +89,7 @@ ul {
   width: 186px;
   height: 100vh;
   background-color: #5f35f5;
-  margin: 35px;
+  margin: 35px 0 35px 35px;
   border-radius: 20px;
   text-align: center;
 }
@@ -136,4 +140,109 @@ ul {
 
 .leftbar .active .homeIcon {
   color: #5f35f5;
+}
+
+.search {
+  margin-top: 35px;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 17px 78px;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.search .searchIcons {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  left: 23px;
+  color: #000;
+}
+
+.search .menu {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-55%);
+  right: 23px;
+  color: #5f35f5;
+  font-size: 20px;
+}
+
+.grouplist {
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 17px 78px;
+  border: 0;
+  box-sizing: border-box;
+  margin-top: 43px;
+  height: 515px;
+  overflow-y: scroll;
+}
+
+.grouplist .group_box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 13px;
+}
+.grouplist .group_box:last-child {
+  border: 0;
+}
+
+.grouplist .group_box .img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.grouplist .group_box .name h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.grouplist .group_box .name h4 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: rgba(77, 77, 77, 0.75);
+}
+
+.grouplist .group_box .button button {
+  font-family: "Nunito", sans-serif;
+  background: #5f35f5;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 23px;
+  border: 0;
+  cursor: pointer;
+}
+
+.grouplist h2 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #000000;
+}
+
+.friendlist {
+  height: 100vh;
+  padding: 17px 30px;
+}
+
+.friendlist .group_box .button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
 }
