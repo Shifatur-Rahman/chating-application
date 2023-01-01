@@ -1,74 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
+import Alert from "@mui/material/Alert";
 
 const FriendRequest = () => {
+  const auth = getAuth();
+  const db = getDatabase();
+  let [friendrequest, setfFriendrequest] = useState([]);
+
+  // Read Database(data anchi)
+  useEffect(() => {
+    let friendRequestArr = [];
+    const friendRequestRef = ref(db, "friendRequest/");
+    onValue(friendRequestRef, (snapshot) => {
+      snapshot.forEach((item) => {
+        console.log(item.val().receiverId);
+        if (auth.currentUser.uid == item.val().receiverId) {
+          friendRequestArr.push({
+            name: item.val().name,
+            sender: item.val().receiverId,
+            receiver: item.val().senderId,
+          });
+        }
+      });
+
+      setfFriendrequest(friendRequestArr);
+    });
+  }, []);
+  console.log(friendrequest);
   return (
     <div className="grouplist">
       <h2>Friend Request</h2>
-      {/* Group box 1 */}
-      <div className="group_box">
-        <div className="img">
-          <img src="assets/images/friends1.png" alt="group img" />
-        </div>
-        <div className="name">
-          <h3>Kiran</h3>
-          <h4>Hi Guys, Wassup!</h4>
-        </div>
-        <div className="button">
-          <button>Accept</button>
-        </div>
-      </div>
-      {/* Group box 2 */}
-      <div className="group_box">
-        <div className="img">
-          <img src="assets/images/friends1.png" alt="group img" />{" "}
-        </div>
-        <div className="name">
-          <h3>Swathi</h3>
-          <h4>Hi Guys, Wassup!</h4>
-        </div>
-        <div className="button">
-          <button>Accept</button>
-        </div>
-      </div>
-      {/* Group box 3 */}
-      <div className="group_box">
-        <div className="img">
-          <img src="assets/images/friends1.png" alt="group img" />{" "}
-        </div>
-        <div className="name">
-          <h3>Kiran</h3>
-          <h4>Hi Guys, Wassup!</h4>
-        </div>
-        <div className="button">
-          <button>Accept</button>
-        </div>
-      </div>
-      {/* Group box 4 */}
-      <div className="group_box">
-        <div className="img">
-          <img src="assets/images/friends1.png" alt="group img" />{" "}
-        </div>
-        <div className="name">
-          <h3>Swathi</h3>
-          <h4>Hi Guys, Wassup!</h4>
-        </div>
-        <div className="button">
-          <button>Accept</button>
-        </div>
-      </div>
-      {/* Group box 5 */}
-      <div className="group_box">
-        <div className="img">
-          <img src="assets/images/friends1.png" alt="group img" />{" "}
-        </div>
-        <div className="name">
-          <h3>Kiran</h3>
-          <h4>Hi Guys, Wassup!</h4>
-        </div>
-        <div className="button">
-          <button>Accept</button>
-        </div>
-      </div>
+      {friendrequest.map(
+        (item) => (
+          <div className="group_box">
+            <div className="img">
+              <img src="assets/images/friends1.png" alt="group img" />
+            </div>
+            <div className="name">
+              <h3>{item.name}</h3>
+              <h4>Hi Guys, Wassup!</h4>
+            </div>
+            <div className="button">
+              <button>Accept</button>
+            </div>
+          </div>
+        )
+
+        // : (
+        //   <Alert severity="info">No friend Request</Alert>
+        // )
+      )}
+
+      {friendrequest.length == 0 && (
+        <Alert style={{ marginTop: "30px" }} severity="info">
+          No Friend Request
+        </Alert>
+      )}
     </div>
   );
 };

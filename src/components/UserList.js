@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, push, set } from "firebase/database";
 import { getAuth } from "firebase/auth";
 const UserList = () => {
   const auth = getAuth();
   const db = getDatabase();
   let [userList, setUserList] = useState([]);
- //console.log(auth.currentUser.uid);
+  //console.log(auth.currentUser.uid);
+
   useEffect(() => {
     let userArr = [];
     const userRef = ref(db, "users");
@@ -21,7 +22,19 @@ const UserList = () => {
     });
   }, []);
 
- // console.log(userList);
+  // console.log(userList);
+  // console.log(auth.currentUser.uid);
+  let handleFriendRequest = (info) => {
+    //console.log(info.id);
+    // write database (data send korchi)
+    console.log(auth.currentUser);
+    set(push(ref(db, "friendRequest/")), {
+      name: auth.currentUser.displayName,
+      senderId: auth.currentUser.uid,
+      receiverId: info.id,
+    });
+    console.log(auth.currentUser.displayName);
+  };
 
   return (
     <div className="grouplist friendlist">
@@ -40,7 +53,7 @@ const UserList = () => {
                 <p>{items.email}</p>
               </div>
               <div className="button">
-                <button>+</button>
+                <button onClick={() => handleFriendRequest(items)}>+</button>
               </div>
             </div>
           )
