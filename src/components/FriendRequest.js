@@ -8,7 +8,7 @@ const FriendRequest = () => {
   const db = getDatabase();
   let [friendrequest, setfFriendrequest] = useState([]);
 
-  // Read Database(data anchi)
+  // Read Database(data anchi je ke ke request pathaice)
   useEffect(() => {
     let friendRequestArr = [];
     const friendRequestRef = ref(db, "friendRequest/");
@@ -18,8 +18,8 @@ const FriendRequest = () => {
         if (auth.currentUser.uid == item.val().receiverId) {
           friendRequestArr.push({
             name: item.val().name,
-            sender: item.val().receiverId,
-            receiver: item.val().senderId,
+            sender: item.val().senderId,
+            receiver: item.val().receiverId,
           });
         }
       });
