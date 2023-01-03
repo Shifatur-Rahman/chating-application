@@ -8,18 +8,19 @@ const FriendRequest = () => {
   const db = getDatabase();
   let [friendrequest, setfFriendrequest] = useState([]);
 
-  // Read Database(data anchi je ke ke request pathaice)
+  // Read Database(data anchi -> je ke ke request pathaice)
   useEffect(() => {
     let friendRequestArr = [];
     const friendRequestRef = ref(db, "friendRequest/");
     onValue(friendRequestRef, (snapshot) => {
       snapshot.forEach((item) => {
-        console.log(item.val().receiverId);
-        if (auth.currentUser.uid == item.val().receiverId) {
+        // console.log("receiver", item.val().receiverId);
+        // console.log("sender", item.val().senderId);
+        if (auth.currentUser.uid === item.val().receiverId) {
           friendRequestArr.push({
             name: item.val().name,
-            sender: item.val().senderId,
-            receiver: item.val().receiverId,
+            // receiver: item.val().receiverId,
+            // sender: item.val().senderId,
           });
         }
       });
@@ -27,7 +28,7 @@ const FriendRequest = () => {
       setfFriendrequest(friendRequestArr);
     });
   }, []);
-  console.log(friendrequest);
+  // console.log(friendrequest);
   return (
     <div className="grouplist">
       <h2>Friend Request</h2>
@@ -52,7 +53,7 @@ const FriendRequest = () => {
         // )
       )}
 
-      {friendrequest.length == 0 && (
+      {friendrequest.length === 0 && (
         <Alert style={{ marginTop: "30px" }} severity="info">
           No Friend Request
         </Alert>

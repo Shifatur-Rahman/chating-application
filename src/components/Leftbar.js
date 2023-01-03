@@ -17,7 +17,7 @@ const Leftbar = (props) => {
   let handleLogout = () => {
     signOut(auth)
       .then(() => {
-        console.log("sign out");
+        //  console.log("sign out");
         navigate("/login");
       })
       .catch((error) => {

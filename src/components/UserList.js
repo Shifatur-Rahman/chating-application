@@ -8,7 +8,9 @@ const UserList = () => {
   const db = getDatabase();
 
   let [userList, setUserList] = useState([]);
-  let [friendrequest, setfFriendrequest] = useState([]);
+  let [friendrequest, setFriendrequest] = useState([]);
+  //let [friendrequest2, setFriendrequest2] = useState([]);
+  let [change, setChange] = useState(false);
 
   //console.log(auth.currentUser.uid);
 
@@ -28,29 +30,39 @@ const UserList = () => {
     });
   }, []);
 
-  // Read Database(data anchi -> jader ke request pathano hoice sei sob data ke)
-  useEffect(() => {
-    let friendRequestArr = [];
-    const friendRequestRef = ref(db, "friendRequest/");
-    onValue(friendRequestRef, (snapshot) => {
-      snapshot.forEach((item) => {
-        console.log(item.val().receiverId);
-        friendRequestArr.push(item.val().receiverId);
-      });
-      setfFriendrequest(friendRequestArr);
-    });
-  }, [ref(db, "friendRequest/")]);
-
-  // write database (data send korchi)
+  // write database (data send korchi -> kader request pathano hoice)
+  // sender, receiver start ekhan theke
+  // sender -> jar id theke request pathano hocce
+  // receiver -> je request pabe
   let handleFriendRequest = (info) => {
     set(push(ref(db, "friendRequest/")), {
       name: auth.currentUser.displayName,
       senderId: auth.currentUser.uid,
       receiverId: info.id,
     });
-    console.log(auth.currentUser.displayName);
+    setChange(!change);
+    //console.log(info);
   };
-  console.log(userList);
+  // console.log(userList);
+  // console.log(friendrequest);
+
+  // Read Database(data anchi -> jader ke request pathano hoice sei sob data ke)
+  useEffect(() => {
+    let friendRequestArr = [];
+    // let friendRequestArr2 = [];
+    const friendRequestRef = ref(db, "friendRequest/");
+    onValue(friendRequestRef, (snapshot) => {
+      snapshot.forEach((item) => {
+        // console.log("receiver", item.val().receiverId);
+        //console.log("sender", item.val().senderId);
+        friendRequestArr.push(item.val().receiverId);
+        //friendRequestArr2.push(item.val().senderId);
+      });
+      setFriendrequest(friendRequestArr);
+      // setFriendrequest2(friendRequestArr2);
+    });
+  }, [change]);
+  console.log(friendrequest);
   return (
     <div className="grouplist friendlist">
       <h2>User List</h2>
@@ -58,6 +70,7 @@ const UserList = () => {
 
       {userList.map(
         (items) =>
+          // auth.currentUser.uid !== items.id -> nijer id jeno na ase tai ai condition
           auth.currentUser.uid !== items.id && (
             <div className="group_box">
               <div className="img">
@@ -68,7 +81,12 @@ const UserList = () => {
                 <p>{items.id}</p>
               </div>
               {/* ekhane user list && kader request pathano hoice ta
-               compare kore button er sign change korchi */}
+               compare kore button er sign change korchi
+               ||
+              (friendrequest.includes(auth.currentUser.uid) &&
+                friendrequest2.includes(items.id)) ?
+                    friendrequest2.includes(auth.currentUser.uid) ?
+               */}
               {friendrequest.includes(items.id) ? (
                 <div className="button">
                   <button
