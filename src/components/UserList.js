@@ -12,8 +12,6 @@ const UserList = () => {
   //let [friendrequest2, setFriendrequest2] = useState([]);
   let [change, setChange] = useState(false);
 
-  //console.log(auth.currentUser.uid);
-
   // Read Database(jara reg korce tader list anci database theke)
   useEffect(() => {
     let userArr = [];
@@ -49,20 +47,16 @@ const UserList = () => {
   // Read Database(data anchi -> jader ke request pathano hoice sei sob data ke)
   useEffect(() => {
     let friendRequestArr = [];
-    // let friendRequestArr2 = [];
     const friendRequestRef = ref(db, "friendRequest/");
     onValue(friendRequestRef, (snapshot) => {
       snapshot.forEach((item) => {
-        // console.log("receiver", item.val().receiverId);
-        //console.log("sender", item.val().senderId);
-        friendRequestArr.push(item.val().receiverId);
-        //friendRequestArr2.push(item.val().senderId);
+        friendRequestArr.push(item.val().receiverId + item.val().senderId);
       });
       setFriendrequest(friendRequestArr);
-      // setFriendrequest2(friendRequestArr2);
     });
   }, [change]);
   console.log(friendrequest);
+  console.log(userList);
   return (
     <div className="grouplist friendlist">
       <h2>User List</h2>
@@ -82,12 +76,10 @@ const UserList = () => {
               </div>
               {/* ekhane user list && kader request pathano hoice ta
                compare kore button er sign change korchi
-               ||
-              (friendrequest.includes(auth.currentUser.uid) &&
-                friendrequest2.includes(items.id)) ?
-                    friendrequest2.includes(auth.currentUser.uid) ?
-               */}
-              {friendrequest.includes(items.id) ? (
+               
+              */}
+              {friendrequest.includes(items.id + auth.currentUser.uid) ||
+              friendrequest.includes(auth.currentUser.uid + items.id) ? (
                 <div className="button">
                   <button
                     style={{ backgroundColor: "rgb(26, 102, 255)" }}

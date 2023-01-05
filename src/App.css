@@ -107,8 +107,8 @@ ul {
   margin-top: 38px;
 }
 .leftbar li {
-  margin-top: 83px;
-  width: 161px;
+  margin-top: 60px;
+  width: 90%;
   margin-left: auto;
   padding: 20px;
   cursor: pointer;
@@ -130,8 +130,9 @@ ul {
 }
 
 .leftbar .homeIcon {
-  font-size: 45px;
+  font-size: 40px;
   color: #fff;
+  margin-left: -20px;
 }
 
 .leftbar .active {
@@ -181,7 +182,7 @@ ul {
   border: 0;
   box-sizing: border-box;
   margin-top: 43px;
-  height: 515px;
+  height: 415px;
   overflow-y: scroll;
 }
 
@@ -204,7 +205,7 @@ ul {
 
 .grouplist .group_box .name h3 {
   font-family: "Nunito", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
 }
 
@@ -221,7 +222,7 @@ ul {
   background: #5f35f5;
   border-radius: 5px;
   color: #fff;
-  font-size: 20px;
+  font-size: 17px;
   padding: 10px 23px;
   border: 0;
   cursor: pointer;
@@ -245,4 +246,15 @@ ul {
   font-size: 13px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.5);
+}
+.friendrequest {
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 17px 78px;
+  border: 0;
+  box-sizing: border-box;
+  margin-top: 43px;
+  height: 380px;
+  overflow-y: scroll;
 }

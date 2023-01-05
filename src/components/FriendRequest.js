@@ -30,7 +30,7 @@ const FriendRequest = () => {
   }, []);
   // console.log(friendrequest);
   return (
-    <div className="grouplist">
+    <div className="friendrequest">
       <h2>Friend Request</h2>
       {friendrequest.map(
         (item) => (
