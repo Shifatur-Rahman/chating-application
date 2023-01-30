@@ -9,7 +9,6 @@ const UserList = () => {
 
   let [userList, setUserList] = useState([]);
   let [friendrequest, setFriendrequest] = useState([]);
-  //let [friendrequest2, setFriendrequest2] = useState([]);
   let [change, setChange] = useState(false);
 
   // Read Database(jara reg korce tader list anci database theke)
@@ -32,14 +31,16 @@ const UserList = () => {
   // sender, receiver start ekhan theke
   // sender -> jar id theke request pathano hocce
   // receiver -> je request pabe
+  //console.log(auth.currentUser.displayName);
   let handleFriendRequest = (info) => {
     set(push(ref(db, "friendRequest/")), {
-      name: auth.currentUser.displayName,
+      senderName: auth.currentUser.displayName,
       senderId: auth.currentUser.uid,
+      receiverName: info.username,
       receiverId: info.id,
     });
     setChange(!change);
-    //console.log(info);
+    console.log(info);
   };
   // console.log(userList);
   // console.log(friendrequest);
@@ -55,8 +56,8 @@ const UserList = () => {
       setFriendrequest(friendRequestArr);
     });
   }, [change]);
-  console.log(friendrequest);
-  console.log(userList);
+  //console.log(friendrequest);
+  //console.log(userList);
   return (
     <div className="grouplist friendlist">
       <h2>User List</h2>
