@@ -77,7 +77,6 @@ const UserList = () => {
               </div>
               {/* ekhane user list && kader request pathano hoice ta
                compare kore button er sign change korchi
-               
               */}
               {friendrequest.includes(items.id + auth.currentUser.uid) ||
               friendrequest.includes(auth.currentUser.uid + items.id) ? (
