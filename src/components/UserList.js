@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, push, set } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { BsCheck } from "react-icons/bs";
+import { FaUserFriends } from "react-icons/fa";
 
 const UserList = () => {
   const auth = getAuth();
@@ -9,6 +10,7 @@ const UserList = () => {
 
   let [userList, setUserList] = useState([]);
   let [friendrequest, setFriendrequest] = useState([]);
+  let [friend, setFriend] = useState([]);
   let [change, setChange] = useState(false);
 
   // Read Database(jara reg korce tader list anci database theke)
@@ -56,8 +58,19 @@ const UserList = () => {
       setFriendrequest(friendRequestArr);
     });
   }, [change]);
-  //console.log(friendrequest);
-  //console.log(userList);
+
+  //(Read db) acceptFriend theke data anci mane jader req accept kora hoice
+  useEffect(() => {
+    let friendArr = [];
+    const friendRef = ref(db, "acceptFriend/");
+    onValue(friendRef, (snapshot) => {
+      snapshot.forEach((item) => {
+        friendArr.push(item.val().receiverId + item.val().senderId);
+      });
+      setFriend(friendArr);
+    });
+  }, []);
+
   return (
     <div className="grouplist friendlist">
       <h2>User List</h2>
@@ -73,13 +86,18 @@ const UserList = () => {
               </div>
               <div className="name">
                 <h3> {items.username} </h3>
-                <p>{items.id}</p>
+                <p>{items.email}</p>
               </div>
-              {/* ekhane user list && kader request pathano hoice ta
-               compare kore button er sign change korchi
-              */}
-              {friendrequest.includes(items.id + auth.currentUser.uid) ||
-              friendrequest.includes(auth.currentUser.uid + items.id) ? (
+
+              {friend.includes(items.id + auth.currentUser.uid) ||
+              friend.includes(auth.currentUser.uid + items.id) ? (
+                <div className="button">
+                  <button>
+                    <FaUserFriends />
+                  </button>
+                </div>
+              ) : friendrequest.includes(items.id + auth.currentUser.uid) ||
+                friendrequest.includes(auth.currentUser.uid + items.id) ? (
                 <div className="button">
                   <button
                     style={{ backgroundColor: "rgb(26, 102, 255)" }}
@@ -93,6 +111,9 @@ const UserList = () => {
                   <button onClick={() => handleFriendRequest(items)}>+</button>
                 </div>
               )}
+              {/* ekhane user list && kader request pathano hoice ta
+               compare kore button er sign change korchi
+              */}
             </div>
           )
       )}
