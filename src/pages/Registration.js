@@ -92,6 +92,7 @@ const Registration = () => {
               {existEmail ? <Alert severity="error">{existEmail}</Alert> : ""}
 
               <TextField
+                className="nameInput"
                 helperText={nameErr}
                 id="demo-helper-text-misaligned"
                 label="FullName"
@@ -101,6 +102,7 @@ const Registration = () => {
               />
               <br />
               <TextField
+                className="emailInput"
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"
                 label="Email"
@@ -110,6 +112,7 @@ const Registration = () => {
               />
               <br />
               <TextField
+                className="passwordInput"
                 helperText={
                   passwordErr
                     ? passwordErr
@@ -126,6 +129,7 @@ const Registration = () => {
 
               <br />
               <TextField
+                className="confirmPassInput"
                 helperText={
                   confirmpasswordErr
                     ? confirmpasswordErr

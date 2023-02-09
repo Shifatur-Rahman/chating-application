@@ -66,7 +66,7 @@ const Friends = () => {
             <h4>Hi Guys, Wassup!</h4>
           </div>
           <div className="button">
-            <p>{items.date}</p>
+            <h4>{items.date}</h4>
           </div>
         </div>
       ))}

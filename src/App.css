@@ -9,6 +9,65 @@ ul {
   list-style: none;
 }
 
+.dlmode .off,
+.on {
+  font-size: 40px;
+}
+.dlmode {
+  position: absolute;
+  top: -2px;
+  left: 25px;
+}
+.dark {
+  background-color: #000;
+  color: #fff;
+}
+.dark .grouplist {
+  box-shadow: 0px 4px 4px rgba(234, 225, 225, 0.25) !important;
+}
+.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark h4 {
+  color: #ced6e0 !important;
+}
+.dark h2 {
+  color: #fff !important;
+}
+.dark h1 {
+  color: #fff !important;
+}
+.dark .option {
+  border: 2px solid rgba(254, 254, 255, 0.083) !important;
+}
+.dark .nameInput,
+.emailInput,
+.passwordInput,
+.confirmPassInput {
+  background-color: #fff;
+  border-radius: 5px !important;
+}
+
+.dark .msg {
+  color: #fff !important;
+}
+
+.dark .text {
+  color: #fff !important;
+}
+.text {
+  color: #000;
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  left: 50px;
+  width: 150px;
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
 .css-mhc70k-MuiGrid-root > .MuiGrid-item {
   padding-left: 0 !important;
 }

@@ -99,6 +99,7 @@ const Login = () => {
               )}
 
               <TextField
+                className="emailInput"
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"
                 label="Email"
@@ -109,6 +110,7 @@ const Login = () => {
               <br />
               <div className="eye">
                 <TextField
+                  className="passwordInput"
                   helperText={passwordErr}
                   id="demo-helper-text-misaligned"
                   label="Password"

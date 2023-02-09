@@ -86,7 +86,7 @@ const UserList = () => {
               </div>
               <div className="name">
                 <h3> {items.username} </h3>
-                <p>{items.email}</p>
+                <h4>{items.email}</h4>
               </div>
 
               {friend.includes(items.id + auth.currentUser.uid) ||
