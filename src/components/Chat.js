@@ -22,8 +22,9 @@ const Chat = () => {
         </div>
 
         <div className="chatArea">
-          <div className="chatMsg">
-            <p></p>
+          <div className="chatMsg" style={alignLeft}>
+            <p style={msg}>Hey there</p>
+            <p className="date">02-August-2023 </p>
           </div>
         </div>
       </div>
@@ -31,4 +32,14 @@ const Chat = () => {
   );
 };
 
+let msg = {
+  background: "#F1F1F1",
+};
+
+let alignRight = {
+  justifyContent: "flex-end",
+};
+let alignLeft = {
+  justifyContent: "flex-start",
+};
 export default Chat;
