@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { BsToggleOff, BsToggleOn } from "react-icons/bs";
 import { useState } from "react";
+import Message from "./pages/Message";
 
 function App() {
   let [dl, setDl] = useState(true);
@@ -41,6 +42,7 @@ function App() {
             <Route path="/" element={<Registration />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/msg" element={<Message />} />
           </Routes>
         </BrowserRouter>
       </div>

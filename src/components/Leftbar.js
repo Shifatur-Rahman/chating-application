@@ -7,7 +7,7 @@ import {
   MdLogout,
 } from "react-icons/md";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Leftbar = (props) => {
   let [name, setName] = useState();
@@ -45,11 +45,16 @@ const Leftbar = (props) => {
       <div className="icons">
         <ul>
           <li className={props.active === "home" && "active"}>
-            <AiOutlineHome className="homeIcon" />
+            <Link to="/home">
+              {" "}
+              <AiOutlineHome className="homeIcon" />
+            </Link>
           </li>
           <li className={props.active === "msg" && "active"}>
             {" "}
-            <MdSms className="homeIcon" />
+            <Link to="/msg">
+              <MdSms className="homeIcon" />
+            </Link>
           </li>
           <li className={props.active === "notification" && "active"}>
             {" "}

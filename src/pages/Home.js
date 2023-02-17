@@ -37,7 +37,7 @@ const Home = () => {
             <FriendRequest />
           </Grid>
           <Grid item xs={3}>
-            <Friends />
+            <Friends item="date" />
           </Grid>
           <Grid item xs={3}>
             <UserList />

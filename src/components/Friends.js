@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Alert from "@mui/material/Alert";
+import { MdMessage } from "react-icons/md";
 
-const Friends = () => {
+const Friends = (props) => {
   const auth = getAuth();
   const db = getDatabase();
   let [userFriend, setUserFriend] = useState([]);
@@ -66,7 +67,13 @@ const Friends = () => {
             <h4>Hi Guys, Wassup!</h4>
           </div>
           <div className="button">
-            <h4>{items.date}</h4>
+            {props.item == "date" ? (
+              <h4>{items.date}</h4>
+            ) : (
+              <button className="msg-icon">
+                <MdMessage />
+              </button>
+            )}
           </div>
         </div>
       ))}

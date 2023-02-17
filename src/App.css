@@ -57,6 +57,13 @@ ul {
 .dark .text {
   color: #fff !important;
 }
+.dark .grouplist .group_box {
+  border-bottom: 1px solid rgba(242, 238, 238, 0.25) !important;
+}
+
+.dark .grouplist .group_box:last-child {
+  border: none !important  ;
+}
 .text {
   color: #000;
   display: inline-block;
@@ -308,4 +315,80 @@ ul {
 }
 .friendrequest {
   height: 380px;
+}
+
+.button .msg-icon {
+  display: flex;
+  align-items: center;
+}
+
+.chat {
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 17px 78px;
+  border: 0;
+  box-sizing: border-box;
+  margin-top: 43px;
+  height: 415px;
+  overflow-y: scroll;
+}
+
+.chat .topArea {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 15px;
+}
+
+.chat .img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 33px;
+  position: relative;
+  filter: drop-shadow(0 0 0 0.35rem #000);
+}
+
+.chat .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.chat .topArea .info {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.chat .identity h3 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.chat .identity p {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.chat .img .roundImg {
+  width: 15px;
+  height: 15px;
+  background-color: #00ff75;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+}
+
+.chat .dots {
+  font-size: 20px;
+  width: 10%;
+  color: #5f35f5;
+  display: flex;
+  align-items: center;
 }
