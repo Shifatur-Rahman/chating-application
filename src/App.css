@@ -331,7 +331,6 @@ ul {
   box-sizing: border-box;
   margin-top: 43px;
   height: 100vh;
-  overflow-y: scroll;
 }
 
 .chat .topArea {
@@ -410,6 +409,10 @@ ul {
   border-radius: 10px;
 }
 
+.dark .date {
+  color: rgba(215, 208, 208, 0.25) !important;
+}
+
 .chat .chatMsg .date {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
@@ -417,5 +420,21 @@ ul {
   color: rgba(0, 0, 0, 0.25);
   position: absolute;
   bottom: -40px;
-  left: -40px;
+}
+
+.chat .chatArea {
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 47px;
+}
+
+.chat .chatImg {
+  padding: 10px;
+  width: 200px;
+}
+
+.chat .chatMsg .chatImg img {
+  width: 100%;
 }
