@@ -66,7 +66,6 @@ const Registration = () => {
               });
           });
           // console.log(auth.currentUser);
-
           navigate("/login");
         })
         .catch((error) => {
