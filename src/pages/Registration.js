@@ -142,6 +142,7 @@ const Registration = () => {
                 type="password"
                 onChange={(e) => setConfirmpassword(e.target.value)}
               />
+              
               <br />
 
               <Button
