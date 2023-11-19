@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Grid, TextField, Button, Alert } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
+import { FaFacebook } from "react-icons/fa";
+
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -79,7 +81,8 @@ const Login = () => {
                   Login with Google
                 </div>
                 <div className="option">
-                  <img src="./assets/images/google.png" alt="fb-logo" />
+                  {/* <img src="./assets/images/google.png" alt="fb-logo" /> */}
+                  <FaFacebook style={{marginRight:"10px", fontSize:"20px", color:"#3b5998"}} />
                   Login with Facebook
                 </div>
               </div>
@@ -103,7 +106,7 @@ const Login = () => {
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"
                 label="Email"
-                style={{ width: "365px", marginTop: "40px" }}
+                style={{ width: "365px", marginTop: "10px" }}
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -114,7 +117,7 @@ const Login = () => {
                   helperText={passwordErr}
                   id="demo-helper-text-misaligned"
                   label="Password"
-                  style={{ width: "365px", marginTop: "40px" }}
+                  style={{ width: "365px", marginTop: "10px" }}
                   type={checkPass ? "text" : "password"}
                   onChange={(e) => setPassword(e.target.value)}
                 />
