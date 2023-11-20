@@ -95,7 +95,7 @@ const Registration = () => {
                 helperText={nameErr}
                 id="demo-helper-text-misaligned"
                 label="FullName"
-                style={{ width: "365px" }}
+               // style={{ width: "365px" }}
                 type="text"
                 onChange={(e) => setName(e.target.value)}
               />
@@ -105,7 +105,7 @@ const Registration = () => {
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"
                 label="Email"
-                style={{ width: "365px", marginTop: "10px" }}
+                style={{ marginTop: "10px" }}
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -121,7 +121,7 @@ const Registration = () => {
                 }
                 id="demo-helper-text-misaligned"
                 label="Password"
-                style={{ width: "365px", marginTop: "10px" }}
+                style={{ marginTop: "10px" }}
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -138,7 +138,7 @@ const Registration = () => {
                 }
                 id="demo-helper-text-misaligned"
                 label="Confirm Password"
-                style={{ width: "365px", marginTop: "10px" }}
+                style={{marginTop: "10px" }}
                 type="password"
                 onChange={(e) => setConfirmpassword(e.target.value)}
               />
@@ -146,8 +146,8 @@ const Registration = () => {
               <br />
 
               <Button
+              className="regBtn"
                 style={{
-                  width: "368px",
                   padding: "11px 0",
                   borderRadius: "86px",
                   background: "#5F35F5",

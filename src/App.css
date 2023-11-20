@@ -440,3 +440,43 @@ ul {
 .chat .chatMsg .chatImg img {
   width: 100%;
 }
+
+.nameInput,
+.emailInput,
+.passwordInput,
+.confirmPassInput {
+  width: 365px;
+}
+
+.regBtn {
+  width: 368px;
+  padding: 11px 0;
+  border-radius: 86px;
+  background: #5F35F5;
+  color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+  .registration_part h1 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 5rem;
+  }  
+}
+
+@media screen and (max-width: 900px) {
+  .registration_part h1 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nameInput,
+  .emailInput,
+  .passwordInput,
+  .confirmPassInput {
+    width: 265px;
+  }
+  
+.regBtn {
+  width: 265px;
+}
+}
