@@ -462,12 +462,28 @@ ul {
     font-weight: 500;
     margin-top: 5rem;
   }  
+  .registration_part p {
+    font-size: 18px;
+  }
+  .registration_part .option {
+    padding: 10px 20px;
+    border: 1px solid rgb(3, 1, 76, 0.083);
+    margin-right: 20px;
+    border-radius: 9px;
+    margin-top: 30px;
+    font-family: sans-serif;
+    position: relative;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 900px) {
   .registration_part h1 {
     font-size: 15px;
     font-weight: 500;
+  }
+  .registration_part p {
+    font-size: 13px;
   }
   .nameInput,
   .emailInput,

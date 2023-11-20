@@ -81,7 +81,6 @@ const Login = () => {
                   Login with Google
                 </div>
                 <div className="option">
-                  {/* <img src="./assets/images/google.png" alt="fb-logo" /> */}
                   <FaFacebook style={{marginRight:"10px", fontSize:"20px", color:"#3b5998"}} />
                   Login with Facebook
                 </div>
@@ -106,7 +105,7 @@ const Login = () => {
                 helperText={emailErr}
                 id="demo-helper-text-misaligned"
                 label="Email"
-                style={{ width: "365px", marginTop: "10px" }}
+                style={{ marginTop: "10px" }}
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -117,7 +116,7 @@ const Login = () => {
                   helperText={passwordErr}
                   id="demo-helper-text-misaligned"
                   label="Password"
-                  style={{ width: "365px", marginTop: "10px" }}
+                  style={{ marginTop: "10px" }}
                   type={checkPass ? "text" : "password"}
                   onChange={(e) => setPassword(e.target.value)}
                 />
