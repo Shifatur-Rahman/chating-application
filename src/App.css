@@ -121,6 +121,7 @@ ul {
 
 .registration_part .loginOption {
   display: flex;
+  flex-direction: row;
 }
 
 .registration_part .option {
@@ -134,11 +135,11 @@ ul {
   cursor: pointer;
 }
 
-.registration_part .option img {
+/* .registration_part .option img {
   position: absolute;
   top: 17px;
   left: 10px;
-}
+} */
 
 .registration_part .eye {
   position: relative;
@@ -468,9 +469,12 @@ ul {
   }
   .registration_part .option {
     padding: 20px 40px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     border-radius: 9px;
-    margin-top: 30px;
+    margin-top: 10px;
+  }
+  .registration_part .loginOption {
+    flex-direction: column;
   }
 }
 

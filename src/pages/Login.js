@@ -77,11 +77,13 @@ const Login = () => {
 
               <div className="loginOption">
                 <div onClick={handleGoogleSignIn} className="option">
-                  <img src="./assets/images/google.png" alt="google-logo" />
+                  <img src="./assets/images/google.png" alt="google-logo" style={{marginRight:"10px"}} />
                   Login with Google
                 </div>
                 <div className="option">
-                  <FaFacebook style={{marginRight:"10px", fontSize:"20px", color:"#3b5998"}} />
+                  <FaFacebook 
+                   style={{marginRight:"10px", fontSize:"20px", color:"#3b5998"}} 
+                  />
                   Login with Facebook
                 </div>
               </div>
@@ -144,12 +146,13 @@ const Login = () => {
                   style={{ color: "#ea6c00", textDecoration: "none" }}
                   to="/"
                 >
-                  Sign up
+                  Sign up     
                 </Link>
               </p>
             </div>
           </div>
         </Grid>
+
         <Grid item xs={6}>
           <img
             style={{ width: "100%", height: "100vh" }}
