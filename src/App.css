@@ -449,6 +449,7 @@ ul {
 }
 
 .regBtn {
+  font-size: 15px !important;
   width: 368px;
   padding: 11px 0;
   border-radius: 86px;
@@ -466,14 +467,10 @@ ul {
     font-size: 18px;
   }
   .registration_part .option {
-    padding: 10px 20px;
-    border: 1px solid rgb(3, 1, 76, 0.083);
+    padding: 20px 40px;
     margin-right: 20px;
     border-radius: 9px;
     margin-top: 30px;
-    font-family: sans-serif;
-    position: relative;
-    cursor: pointer;
   }
 }
 
@@ -493,6 +490,10 @@ ul {
   }
   
 .regBtn {
+  width: 265px;
+}
+
+.registration_part .eye {
   width: 265px;
 }
 }

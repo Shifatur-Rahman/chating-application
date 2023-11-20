@@ -126,8 +126,8 @@ const Login = () => {
               <br />
 
               <Button
+                className="regBtn"
                 style={{
-                  width: "368px",
                   padding: "11px 0",
                   borderRadius: "86px",
                   background: "#5F35F5",

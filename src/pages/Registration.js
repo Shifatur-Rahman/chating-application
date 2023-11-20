@@ -146,7 +146,7 @@ const Registration = () => {
               <br />
 
               <Button
-              className="regBtn"
+                className="regBtn"
                 style={{
                   padding: "11px 0",
                   borderRadius: "86px",
