@@ -82,7 +82,7 @@ ul {
 .registration_part .box {
   display: flex;
   justify-content: right;
-  margin-right: 60px;
+  margin-right: 40px;
 }
 
 .registration_part h1 {
