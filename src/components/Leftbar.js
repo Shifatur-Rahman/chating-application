@@ -32,6 +32,7 @@ const Leftbar = (props) => {
       }
     });
   }, []);
+  
   return (
     <div className="leftbar">
       <img
