@@ -33,7 +33,6 @@ const FriendRequest = () => {
           });
         }
       });
-
       setfFriendrequest(friendRequestArr);
     });
     //ekhane [dlt] diye runtime korchi
