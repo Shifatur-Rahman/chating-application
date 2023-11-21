@@ -37,6 +37,7 @@ function App() {
             </>
           )}
         </div>
+
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Registration />} />
@@ -45,9 +46,11 @@ function App() {
             <Route path="/msg" element={<Message />} />
           </Routes>
         </BrowserRouter>
+
       </div>
     </>
   );
 }
 
+// chating root add
 export default App;
