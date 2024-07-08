@@ -3,8 +3,12 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Alert from "@mui/material/Alert";
 import { MdMessage } from "react-icons/md";
+import { useDispatch } from 'react-redux'
+import { activeChat } from "../slice/activeChatSlice";
 
 const Friends = (props) => {
+
+  const dispatch = useDispatch();
   const auth = getAuth();
   const db = getDatabase();
   let [userFriend, setUserFriend] = useState([]);
@@ -38,6 +42,23 @@ const Friends = (props) => {
       setUserFriend(friendList);
     });
   }, []);
+
+  let handleActiveChat = (item) =>{
+    let userInfo = {}
+
+    if(item.receiverId == auth.currentUser.uid){
+      userInfo.status = "single"
+      userInfo.id = item.senderId
+      userInfo.name = item.senderName
+    } 
+    else{
+      userInfo.status = "single"
+      userInfo.id = item.receiverId
+      userInfo.name = item.receiverName
+    }
+
+    dispatch(activeChat(userInfo))
+  }
   // console.log(userFriend);
   // console.log(auth.currentUser.uid);
   return (
@@ -53,7 +74,7 @@ const Friends = (props) => {
       )}
 
       {userFriend.map((items) => (
-        <div className="group_box">
+        <div className="group_box" onClick={()=>handleActiveChat(items)}>
           <div className="img">
             <img src="assets/images/friends1.png" alt="group img" />
           </div>
@@ -62,7 +83,7 @@ const Friends = (props) => {
               {auth.currentUser.uid == items.senderId
                 ? items.receiverName
                 : items.senderName}
-              {/* {items.senderName} {items.receiverName}{" "} */}
+              
             </h3>
             <h4>Hi Guys, Wassup!</h4>
           </div>
@@ -77,6 +98,8 @@ const Friends = (props) => {
           </div>
         </div>
       ))}
+
+
     </div>
   );
 };

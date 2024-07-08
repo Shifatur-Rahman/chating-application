@@ -8,6 +8,8 @@ import Friends from "../components/Friends";
 import UserList from "../components/UserList";
 import Chat from "../components/Chat";
 
+import { useSelector, useDispatch } from 'react-redux'
+
 const Message = () => {
   return (
     <>

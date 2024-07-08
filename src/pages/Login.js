@@ -35,7 +35,7 @@ const Login = () => {
         .then((user) => {
           navigate("/home");
           // console.log(user);
-        })
+        }) 
         .catch((error) => {
           const errorCode = error.code;
           console.log(errorCode);
@@ -80,12 +80,12 @@ const Login = () => {
                   <img src="./assets/images/google.png" alt="google-logo" style={{marginRight:"10px"}} />
                   Login with Google
                 </div>
-                <div className="option">
+                {/* <div className="option">
                   <FaFacebook 
                    style={{marginRight:"10px", fontSize:"20px", color:"#3b5998"}} 
                   />
                   Login with Facebook
-                </div>
+                </div> */}
               </div>
 
               <br />

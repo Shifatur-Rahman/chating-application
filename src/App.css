@@ -460,6 +460,51 @@ ul {
   color: #fff;
 }
 
+/*  Chat css */
+
+.msgWrite{
+  position: relative;
+}
+
+.msgWrite input{
+  width: 88%;
+  background: #f1f1f1;
+  border: 0;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.msgWrite input::placeholder{
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.msgWrite button{
+  font-size: 18px;
+  background: #5F35F5;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.msgWrite .camera{
+  position: absolute;
+  font-size: 25px;
+  right: 85px;
+  top: 30%;
+  cursor: pointer;
+}
+
+
+
+
+
+
 @media screen and (max-width: 1200px) {
   .registration_part h1 {
     font-size: 25px;

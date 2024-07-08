@@ -110,10 +110,10 @@ const UserList = () => {
                 <div className="button">
                   <button onClick={() => handleFriendRequest(items)}>+</button>
                 </div>
+                //ekhane user list && kader request pathano hoice ta compare kore button er sign change korchi
               )}
-              {/* ekhane user list && kader request pathano hoice ta
-               compare kore button er sign change korchi
-              */}
+              
+            
             </div>
           )
       )}

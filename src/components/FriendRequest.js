@@ -22,7 +22,7 @@ const FriendRequest = () => {
     const friendRequestRef = ref(db, "friendRequest/");
     onValue(friendRequestRef, (snapshot) => {
       snapshot.forEach((item) => {
-        console.log("unique id", item.key);
+        // console.log("unique id", item.key);
         if (auth.currentUser.uid === item.val().receiverId) {
           friendRequestArr.push({
             id: item.key,
@@ -60,7 +60,7 @@ const FriendRequest = () => {
 
   return (
     <div className="grouplist friendrequest">
-      <h2>Friend Request</h2>
+      <h2>Friend Request ({friendrequest.length}) </h2>
       {friendrequest.map((item) => (
         <div className="group_box">
           <div className="img">

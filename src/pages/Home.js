@@ -27,20 +27,20 @@ const Home = () => {
   return (
     <>
       {emailVerify ? (
-        <Grid container spacing={2}>
-          <Grid item xs={2}>
-            <Leftbar active="home" />
+        <Grid container spacing={2}>   
+          <Grid item xs={2}>   
+            <Leftbar active="home" />     
           </Grid>
           <Grid item xs={4}>
-            <Search />
-            <GroupList />
-            <FriendRequest />
+            {/* <Search /> */}
+            {/* <GroupList /> */} 
+            <FriendRequest /> 
+          </Grid>
+          <Grid item xs={3}>
+             <UserList />
           </Grid>
           <Grid item xs={3}>
             <Friends item="date" />
-          </Grid>
-          <Grid item xs={3}>
-            <UserList />
           </Grid>
         </Grid>
       ) : (

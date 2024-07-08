@@ -55,7 +55,7 @@ const Registration = () => {
               displayName: name,
             })
               .then(() => {
-                // write database (jara registration korche tader data send korchi )
+                // write database (Registration data send only )
                 set(ref(db, "users/" + auth.currentUser.uid), {
                   username: name,
                   email: email,

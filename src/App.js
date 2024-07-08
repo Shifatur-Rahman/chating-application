@@ -15,7 +15,7 @@ function App() {
     console.log(dl);
   };
 
-  return (
+  return ( 
     <>
       <div className={dl ? "light" : "dark"}>
         <div className="dlmode" onClick={handleDarkLight}>
@@ -52,5 +52,5 @@ function App() {
   );
 }
 
-// chating root add
+
 export default App;
