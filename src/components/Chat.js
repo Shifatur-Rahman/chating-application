@@ -39,11 +39,16 @@ const Chat = () => {
     onValue(ref(db, 'singlemsg'), (snapshot) => {
       let msgArr = [];
       snapshot.forEach(item=>{
+        if((item.val().whoSendId == auth.currentUser.uid && 
+        item.val().whoReceiveId == user.id) ||
+        (item.val().whoSendId == user.id && 
+         item.val().whoReceiveId == auth.currentUser.uid))
+
         msgArr.push(item.val());
       })
       setMsgList(msgArr);
     });
-  },[])
+  },[user.id])
  
   return (
     <> 
@@ -84,12 +89,13 @@ const Chat = () => {
             msgList.map(item=>(
               item.whoSendId == auth.currentUser.uid ?
 
-              <div className="chatMsg" style={alignRight}>
+            (  <div className="chatMsg" style={alignRight}>
               <p style={msgSend}>{item.msg}</p>
               <p style={dateReceive} className="date">
                 02-August-2023{" "}
               </p>
             </div> 
+            )
             :
             <div className="chatMsg" style={alignLeft}>
             <p style={msgReceive}>{item.msg}</p>
@@ -97,7 +103,8 @@ const Chat = () => {
               02-August-2023{" "}
             </p>
           </div>
-            ))
+            
+        ))
           }
 
        

@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import { BsToggleOff, BsToggleOn } from "react-icons/bs";
 import { useState } from "react";
 import Message from "./pages/Message";
+import Notification from "./pages/Notification";
+
 
 function App() {
   let [dl, setDl] = useState(true);
@@ -43,7 +45,9 @@ function App() {
             <Route path="/" element={<Registration />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/msg" element={<Message />} />
+            <Route path="/message" element={<Message />} />
+            <Route path="/notification" element={<Notification />} />
+            
           </Routes>
         </BrowserRouter>
 

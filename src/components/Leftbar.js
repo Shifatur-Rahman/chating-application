@@ -51,15 +51,17 @@ const Leftbar = (props) => {
               <AiOutlineHome className="homeIcon" />
             </Link>
           </li>
-          <li className={props.active === "msg" && "active"}>
+          <li className={props.active === "message" && "active"}>
             {" "}
-            <Link to="/msg">
+            <Link to="/message">
               <MdSms className="homeIcon" />
             </Link>
           </li>
           <li className={props.active === "notification" && "active"}>
-            {" "}
+            {" "} 
+            <Link to="/notification">
             <MdNotificationsNone className="homeIcon" />
+            </Link>
           </li>
           <li className={props.active === "settings" && "active"}>
             {" "}

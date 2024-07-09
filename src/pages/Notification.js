@@ -1,27 +1,28 @@
-import React from "react";
+import React from 'react'
 import { Grid } from "@mui/material";
 import Leftbar from "../components/Leftbar";
 import Search from "../components/Search";
 import Friends from "../components/Friends";
 import Chat from "../components/Chat";
 
-const Message = () => {
+const Notification = () => {
   return (
     <>
-      <Grid container spacing={2}>
+    
+    <Grid container spacing={2}>
         <Grid item xs={2}>
-          <Leftbar active="message" />
+          <Leftbar active="notification" />
         </Grid>
         <Grid item xs={4}>
-          <Search />
-          <Friends item="btn" />
+         
+          <h1>My Notification</h1>
         </Grid>
         <Grid item xs={6}>
           <Chat />
         </Grid>
       </Grid>
     </>
-  );
-};
+  )
+}
 
-export default Message;
+export default Notification
